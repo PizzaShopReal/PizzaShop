@@ -19,7 +19,6 @@ body {
     color: white;
 }
 
-/* Header */
 header {
     background: #111;
     padding: 20px 7%;
@@ -50,7 +49,6 @@ nav a:hover {
     color: #ff9900;
 }
 
-/* Hero */
 .hero {
     text-align: center;
     padding: 80px 20px;
@@ -72,7 +70,6 @@ nav a:hover {
     line-height: 2;
 }
 
-/* Products */
 .products {
     padding: 50px 7%;
 }
@@ -145,7 +142,23 @@ nav a:hover {
     background: #ffb52e;
 }
 
-/* Footer */
+.unavailable {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: #444;
+    color: #aaa;
+    font-weight: bold;
+    cursor: not-allowed;
+}
+
+.unavailable-label {
+    color: #ff5555;
+    font-weight: bold;
+    margin: 18px 0;
+}
+
 footer {
     text-align: center;
     padding: 30px;
@@ -153,7 +166,6 @@ footer {
     border-top: 1px solid #292929;
 }
 
-/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -211,7 +223,6 @@ footer {
     background: #444;
 }
 
-/* Mobile */
 @media (max-width: 600px) {
 
     header {
@@ -251,7 +262,6 @@ footer {
 
 </header>
 
-
 <section class="hero">
 
     <h1>
@@ -266,14 +276,13 @@ footer {
 
 </section>
 
-
 <section class="products" id="products">
 
     <h2>🔥 محصولات فروشگاه</h2>
 
     <div class="grid">
 
-        <!-- Donut SMP -->
+        <!-- پول دونات SMP - ناموجود -->
         <div class="card">
 
             <div class="icon">💰</div>
@@ -288,15 +297,18 @@ footer {
                 قیمت: توافقی
             </div>
 
-            <button class="buy"
-                onclick="buy('پول دونات SMP')">
-                🛒 خرید
+            <div class="unavailable-label">
+                ❌ ناموجود
+            </div>
+
+            <button class="unavailable" disabled>
+                ناموجود
             </button>
 
         </div>
 
 
-        <!-- Premium -->
+        <!-- اکانت پرمیوم - ناموجود -->
         <div class="card">
 
             <div class="icon">👑</div>
@@ -311,15 +323,18 @@ footer {
                 ۱,۰۰۰,۰۰۰ تومان
             </div>
 
-            <button class="buy"
-                onclick="buy('اکانت پرمیوم')">
-                🛒 خرید
+            <div class="unavailable-label">
+                ❌ ناموجود
+            </div>
+
+            <button class="unavailable" disabled>
+                ناموجود
             </button>
 
         </div>
 
 
-        <!-- OptiFine Cape -->
+        <!-- Cape اپتیفاین - ناموجود -->
         <div class="card">
 
             <div class="icon">🦸</div>
@@ -334,15 +349,18 @@ footer {
                 ۱۲۰,۰۰۰ تومان
             </div>
 
-            <button class="buy"
-                onclick="buy('Cape اپتیفاین')">
-                🛒 خرید
+            <div class="unavailable-label">
+                ❌ ناموجود
+            </div>
+
+            <button class="unavailable" disabled>
+                ناموجود
             </button>
 
         </div>
 
 
-        <!-- Edit -->
+        <!-- ادیت و تامنیل - موجود -->
         <div class="card">
 
             <div class="icon">🎨</div>
@@ -365,7 +383,7 @@ footer {
         </div>
 
 
-        <!-- Website -->
+        <!-- سایت سازی - موجود -->
         <div class="card">
 
             <div class="icon">🌐</div>
@@ -390,7 +408,6 @@ footer {
     </div>
 
 </section>
-
 
 <footer>
 
@@ -461,13 +478,11 @@ function buy(product) {
     document.getElementById("buyModal").style.display = "flex";
 }
 
-
 function closeBuy() {
 
     document.getElementById("buyModal").style.display = "none";
 
 }
-
 
 function support() {
 
@@ -475,13 +490,11 @@ function support() {
 
 }
 
-
 function closeSupport() {
 
     document.getElementById("supportModal").style.display = "none";
 
 }
-
 
 window.onclick = function(event) {
 
@@ -498,4 +511,4 @@ window.onclick = function(event) {
 </script>
 
 </body>
-    </html>
+</html>
