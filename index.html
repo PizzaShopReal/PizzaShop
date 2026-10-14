@@ -3,245 +3,471 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090910">
 
-<title>🍕 pizzaShop</title>
+<title>NightShop | فروشگاه ماینکرفت</title>
+
+<meta name="description" content="فروشگاه نایت شاپ؛ فروش خدمات ماینکرفت، پلاگین اختصاصی، دولوپر، اکانت پرمیوم، ساخت اسکین و ادیت.">
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --bg: #090910;
+    --card: #12121e;
+    --purple: #8b5cf6;
+    --pink: #d946ef;
+    --text: #f8f7ff;
+    --muted: #a5a4ba;
+    --border: rgba(255,255,255,.09);
+}
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Tahoma, Arial, sans-serif;
-    background: #0b0b0b;
-    color: white;
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    background:
+        radial-gradient(ellipse at top, #201039 0%, transparent 45%),
+        var(--bg);
+    color: var(--text);
+    line-height: 1.8;
 }
 
-header {
-    background: #111;
-    padding: 20px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #333;
-}
-
-.logo {
-    color: #ff9900;
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.logo span {
-    color: white;
-}
-
-nav a {
-    color: #ddd;
+a {
     text-decoration: none;
-    margin: 0 8px;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
     cursor: pointer;
 }
 
-nav a:hover {
-    color: #ff9900;
+.container {
+    width: min(1120px, 92%);
+    margin: auto;
 }
 
+/* Header */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(9,9,16,.88);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    min-height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -.8px;
+}
+
+.logo span {
+    color: var(--purple);
+}
+
+nav {
+    display: flex;
+    gap: 24px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+nav a:hover {
+    color: white;
+}
+
+.support-btn,
+.buy-btn,
+.copy-btn {
+    border: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+    color: white;
+    font-weight: 800;
+    padding: 11px 18px;
+    transition: .2s;
+}
+
+.support-btn:hover,
+.buy-btn:hover,
+.copy-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.13);
+}
+
+/* Hero */
+
 .hero {
+    padding: 95px 0 75px;
     text-align: center;
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #241500, #0b0b0b);
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 15px;
+    border: 1px solid #7046b8;
+    background: rgba(139,92,246,.1);
+    color: #d8c5ff;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 24px;
 }
 
 .hero h1 {
-    font-size: 42px;
-    margin-bottom: 15px;
+    font-size: clamp(38px, 7vw, 68px);
+    line-height: 1.35;
+    font-weight: 900;
 }
 
 .hero h1 span {
-    color: #ff9900;
+    background: linear-gradient(90deg, #a78bfa, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .hero p {
-    color: #aaa;
+    max-width: 600px;
+    margin: 20px auto 30px;
+    color: var(--muted);
     font-size: 16px;
-    line-height: 2;
 }
 
-.products {
-    padding: 50px 7%;
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.products h2 {
+.secondary-btn {
+    display: inline-block;
+    padding: 11px 20px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #151522;
+}
+
+/* Stats */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 80px;
+}
+
+.stat {
+    text-align: center;
+    background: rgba(255,255,255,.025);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    padding: 22px 10px;
+}
+
+.stat strong {
+    display: block;
+    font-size: 23px;
+    color: #c4b5fd;
+}
+
+.stat span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* Products */
+
+.section {
+    padding: 25px 0 80px;
+}
+
+.section-heading {
     text-align: center;
     margin-bottom: 35px;
 }
 
-.grid {
+.section-heading h2 {
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.section-heading p {
+    color: var(--muted);
+    margin-top: 7px;
+}
+
+.products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
 }
 
-.card {
-    background: #151515;
-    border: 1px solid #333;
-    border-radius: 15px;
-    padding: 20px;
-    transition: 0.2s;
+.product {
+    background: linear-gradient(145deg, #171725, #101019);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: .25s;
 }
 
-.card:hover {
-    border-color: #ff9900;
+.product:hover {
     transform: translateY(-5px);
+    border-color: #7850c5;
+    box-shadow: 0 15px 40px rgba(139,92,246,.09);
 }
 
-.icon {
-    height: 130px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #222;
-    border-radius: 12px;
-    font-size: 60px;
-    margin-bottom: 18px;
+.product-icon {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    border-radius: 17px;
+    font-size: 30px;
+    background: rgba(139,92,246,.14);
+    margin-bottom: 17px;
 }
 
-.card h3 {
-    margin: 10px 0;
+.product h3 {
+    font-size: 19px;
+    margin-bottom: 9px;
 }
 
-.card p {
-    color: #999;
+.product p {
+    color: var(--muted);
     font-size: 13px;
-    line-height: 1.8;
-    min-height: 45px;
+    min-height: 52px;
+}
+
+.tag {
+    display: inline-block;
+    color: #d8c5ff;
+    background: rgba(139,92,246,.12);
+    border-radius: 7px;
+    padding: 3px 9px;
+    font-size: 11px;
+    margin-top: 13px;
+}
+
+.price-row {
+    border-top: 1px solid var(--border);
+    margin-top: 18px;
+    padding-top: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
 }
 
 .price {
-    color: #ffb52e;
-    font-size: 19px;
-    font-weight: bold;
-    margin: 18px 0;
+    font-weight: 900;
+    font-size: 17px;
+    color: #c4b5fd;
 }
 
-.buy {
-    width: 100%;
-    padding: 13px;
-    border: none;
-    border-radius: 10px;
-    background: #ff9900;
-    color: #111;
-    font-weight: bold;
-    cursor: pointer;
+.price small {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 400;
 }
 
-.buy:hover {
-    background: #ffb52e;
+.buy-btn {
+    font-size: 12px;
+    padding: 9px 13px;
 }
 
-.unavailable {
-    width: 100%;
-    padding: 13px;
-    border: none;
-    border-radius: 10px;
-    background: #444;
-    color: #aaa;
-    font-weight: bold;
-    cursor: not-allowed;
+/* Support */
+
+.support-section {
+    padding: 0 0 80px;
 }
 
-.unavailable-label {
-    color: #ff5555;
-    font-weight: bold;
-    margin: 18px 0;
-}
-
-footer {
+.support-box {
     text-align: center;
-    padding: 30px;
-    color: #777;
-    border-top: 1px solid #292929;
+    padding: 42px 20px;
+    border: 1px solid rgba(139,92,246,.35);
+    border-radius: 25px;
+    background:
+        radial-gradient(ellipse at top, rgba(139,92,246,.18), transparent 70%),
+        #11111c;
 }
 
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.85);
-    justify-content: center;
+.support-box h2 {
+    font-size: 29px;
+    margin-bottom: 8px;
+}
+
+.support-box p {
+    color: var(--muted);
+    margin-bottom: 23px;
+}
+
+.id-box {
+    display: inline-flex;
     align-items: center;
-    padding: 20px;
-}
-
-.modal-box {
-    width: 100%;
-    max-width: 400px;
-    background: #171717;
-    border: 1px solid #444;
-    border-radius: 18px;
-    padding: 30px;
-    text-align: center;
-}
-
-.modal-box h2 {
-    color: #ff9900;
-    margin-bottom: 15px;
-}
-
-.modal-box p {
-    color: #bbb;
-    line-height: 2;
-}
-
-.rubika {
-    margin: 20px 0;
-    padding: 14px;
-    background: #222;
-    border-radius: 10px;
-    color: #ffb52e;
-    font-weight: bold;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: #090910;
+    border: 1px solid var(--border);
+    padding: 12px;
+    border-radius: 14px;
     direction: ltr;
 }
 
-.close {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    background: #333;
-    color: white;
-    cursor: pointer;
+.id-text {
+    color: #d8c5ff;
+    font-weight: 800;
+    padding: 0 8px;
 }
 
-.close:hover {
-    background: #444;
+.copy-btn {
+    font-size: 12px;
+    padding: 9px 13px;
 }
 
-@media (max-width: 600px) {
+.rubika-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 11px 22px;
+    background: #25203b;
+    border: 1px solid #584180;
+    border-radius: 12px;
+    font-weight: 700;
+}
 
-    header {
-        padding: 15px;
+/* Footer */
+
+footer {
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 28px 15px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+footer strong {
+    color: #c4b5fd;
+}
+
+/* Toast */
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 100px);
+    opacity: 0;
+    background: #28213b;
+    border: 1px solid #8b5cf6;
+    border-radius: 12px;
+    padding: 12px 20px;
+    z-index: 500;
+    transition: .3s;
+    text-align: center;
+    width: max-content;
+    max-width: 90%;
+    font-size: 13px;
+}
+
+.toast.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    nav {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 560px) {
+    .nav {
+        min-height: 68px;
     }
 
     .logo {
-        font-size: 20px;
+        font-size: 21px;
     }
 
-    nav a {
+    nav {
+        display: none;
+    }
+
+    .support-btn {
+        padding: 9px 12px;
         font-size: 12px;
-        margin: 0 3px;
     }
 
-    .hero h1 {
-        font-size: 30px;
+    .hero {
+        padding: 65px 0 50px;
     }
 
+    .hero p {
+        font-size: 14px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .product {
+        padding: 21px;
+    }
+
+    .stats {
+        gap: 8px;
+        margin-bottom: 55px;
+    }
+
+    .stat {
+        padding: 15px 5px;
+    }
+
+    .stat strong {
+        font-size: 19px;
+    }
+
+    .stat span {
+        font-size: 11px;
+    }
+
+    .section-heading h2 {
+        font-size: 26px;
+    }
+
+    .support-box h2 {
+        font-size: 24px;
+    }
 }
 </style>
 </head>
@@ -249,266 +475,469 @@ footer {
 <body>
 
 <header>
+    <div class="container nav">
 
-    <div class="logo">
-        🍕 pizza<span>Shop</span>
+        <a href="#" class="logo">
+            NIGHT<span>SHOP</span>
+        </a>
+
+        <nav>
+            <a href="#home">خانه</a>
+            <a href="#products">محصولات</a>
+            <a href="#support">پشتیبانی</a>
+        </nav>
+
+        <a class="support-btn"
+           href="https://rubika.ir/ArdagulerReal"
+           target="_blank"
+           rel="noopener">
+           پشتیبانی
+        </a>
+
     </div>
-
-    <nav>
-        <a href="#">خانه</a>
-        <a href="#products">محصولات</a>
-        <a href="#" onclick="support(); return false;">پشتیبانی</a>
-    </nav>
-
 </header>
 
-<section class="hero">
+<main>
+
+<section class="hero container" id="home">
+
+    <span class="badge">✦ فروشگاه تخصصی ماینکرفت ✦</span>
 
     <h1>
-        به <span>pizzaShop</span> خوش آمدید 🍕
+        دنیای خودت رو<br>
+        با <span>NightShop</span> بساز!
     </h1>
 
     <p>
-        فروشگاه محصولات گیمینگ و خدمات ماینکرفت
-        <br>
-        🛒 خرید قسطی هم امکان‌پذیر است
+        از پلاگین‌های اختصاصی و خدمات حرفه‌ای سرور
+        تا اسکین، ادیت و اکانت پرمیوم؛
+        خدمات موردنیازت رو از نایت شاپ سفارش بده.
     </p>
+
+    <div class="hero-actions">
+
+        <a href="#products" class="support-btn">
+            مشاهده محصولات
+        </a>
+
+        <a href="#support" class="secondary-btn">
+            ارتباط با پشتیبانی
+        </a>
+
+    </div>
 
 </section>
 
-<section class="products" id="products">
+<section class="container stats">
 
-    <h2>🔥 محصولات فروشگاه</h2>
+    <div class="stat">
+        <strong>⚡ اختصاصی</strong>
+        <span>خدمات سفارشی</span>
+    </div>
 
-    <div class="grid">
+    <div class="stat">
+        <strong>🎮 Minecraft</strong>
+        <span>فروشگاه تخصصی ماینکرفت</span>
+    </div>
 
-        <!-- پول دونات SMP - ناموجود -->
-        <div class="card">
+    <div class="stat">
+        <strong>💬 Rubika</strong>
+        <span>ثبت سفارش و پشتیبانی</span>
+    </div>
 
-            <div class="icon">💰</div>
+</section>
 
-            <h3>پول دونات SMP</h3>
+<section class="section container" id="products">
+
+    <div class="section-heading">
+        <h2>محصولات فروشگاه</h2>
+        <p>محصول موردنظرت رو انتخاب کن و سفارشت رو ثبت کن.</p>
+    </div>
+
+    <div class="products">
+
+        <!-- 1 -->
+
+        <article class="product">
+
+            <div class="product-icon">🔌</div>
+
+            <h3>پلاگین اختصاصی</h3>
 
             <p>
-                پول دونات SMP برای استفاده در سرور
+                ساخت پلاگین اختصاصی برای سرور ماینکرفت
+                با امکانات دلخواه شما.
             </p>
 
-            <div class="price">
-                قیمت: توافقی
+            <span class="tag">سفارش اختصاصی</span>
+
+            <div class="price-row">
+                <div class="price">
+                    از ۵۰۰,۰۰۰ تومان
+                    <small>بسته به امکانات</small>
+                </div>
+
+                <button class="buy-btn"
+                    onclick="buy('پلاگین اختصاصی')">
+                    سفارش
+                </button>
             </div>
 
-            <div class="unavailable-label">
-                ❌ ناموجود
+        </article>
+
+        <!-- 2 -->
+
+        <article class="product">
+
+            <div class="product-icon">💻</div>
+
+            <h3>دولوپر اختصاصی</h3>
+
+            <p>
+                توسعه و رفع باگ پلاگین‌ها،
+                تنظیمات سرور و پیاده‌سازی امکانات.
+            </p>
+
+            <span class="tag">خدمات برنامه‌نویسی</span>
+
+            <div class="price-row">
+                <div class="price">
+                    از ۳۰۰,۰۰۰ تومان
+                    <small>هر ساعت کاری</small>
+                </div>
+
+                <button class="buy-btn"
+                    onclick="buy('دولوپر اختصاصی')">
+                    سفارش
+                </button>
             </div>
 
-            <button class="unavailable" disabled>
-                ناموجود
-            </button>
+        </article>
 
-        </div>
+        <!-- 3 -->
 
+        <article class="product">
 
-        <!-- اکانت پرمیوم - ناموجود -->
-        <div class="card">
-
-            <div class="icon">👑</div>
+            <div class="product-icon">👑</div>
 
             <h3>اکانت پرمیوم</h3>
 
             <p>
-                اکانت پرمیوم برای تجربه بهتر و امکانات بیشتر
+                سفارش اکانت ماینکرفت با مشخصات موردنظر.
+                موجودی و نوع اکانت را استعلام بگیر.
             </p>
 
-            <div class="price">
-                ۱,۰۰۰,۰۰۰ تومان
+            <span class="tag">استعلام موجودی</span>
+
+            <div class="price-row">
+                <div class="price">
+                    از ۱,۵۰۰,۰۰۰ تومان
+                    <small>قیمت وابسته به نوع اکانت</small>
+                </div>
+
+                <button class="buy-btn"
+                    onclick="buy('اکانت پرمیوم')">
+                    سفارش
+                </button>
             </div>
 
-            <div class="unavailable-label">
-                ❌ ناموجود
-            </div>
+        </article>
 
-            <button class="unavailable" disabled>
-                ناموجود
-            </button>
+        <!-- 4 -->
 
-        </div>
+        <article class="product">
 
+            <div class="product-icon">🦸</div>
 
-        <!-- Cape اپتیفاین - ناموجود -->
-        <div class="card">
-
-            <div class="icon">🦸</div>
-
-            <h3>Cape اپتیفاین</h3>
+            <h3>کیپ Minecon</h3>
 
             <p>
-                کیپ مخصوص Minecraft
+                بررسی امکان تهیه کیپ‌های کمیاب و
+                کلکسیونی ماینکرفت.
             </p>
 
-            <div class="price">
-                ۱۲۰,۰۰۰ تومان
+            <span class="tag">قیمت توافقی</span>
+
+            <div class="price-row">
+                <div class="price">
+                    استعلام قیمت
+                    <small>بسته به اصالت و امکان تهیه</small>
+                </div>
+
+                <button class="buy-btn"
+                    onclick="buy('کیپ Minecon')">
+                    استعلام
+                </button>
             </div>
 
-            <div class="unavailable-label">
-                ❌ ناموجود
-            </div>
+        </article>
 
-            <button class="unavailable" disabled>
-                ناموجود
-            </button>
+        <!-- 5 -->
 
-        </div>
+        <article class="product">
 
+            <div class="product-icon">✨</div>
 
-        <!-- ادیت و تامنیل - موجود -->
-        <div class="card">
-
-            <div class="icon">🎨</div>
-
-            <h3>ادیت و تامنیل</h3>
+            <h3>کیپ OptiFine</h3>
 
             <p>
-                طراحی و ادیت تامنیل برای یوتیوب و آپارات
+                راهنمایی و سفارش خدمات مربوط به کیپ
+                OptiFine با بررسی شرایط حساب.
             </p>
 
-            <div class="price">
-                ۸۰,۰۰۰ تومان
+            <span class="tag">استعلام موجودی</span>
+
+            <div class="price-row">
+                <div class="price">
+                    از ۳۰۰,۰۰۰ تومان
+                    <small>نیازمند تأیید امکان تهیه</small>
+                </div>
+
+                <button class="buy-btn"
+                    onclick="buy('کیپ OptiFine')">
+                    سفارش
+                </button>
             </div>
 
-            <button class="buy"
-                onclick="buy('ادیت و تامنیل')">
-                🛒 خرید
-            </button>
+        </article>
 
-        </div>
+        <!-- 6 -->
 
+        <article class="product">
 
-        <!-- سایت سازی - موجود -->
-        <div class="card">
+            <div class="product-icon">🎨</div>
 
-            <div class="icon">🌐</div>
-
-            <h3>سایت‌سازی</h3>
+            <h3>ساخت اسکین</h3>
 
             <p>
-                طراحی و ساخت سایت اختصاصی برای شما
+                طراحی اسکین اختصاصی ماینکرفت
+                با رنگ‌ها و ظاهر دلخواه شما.
             </p>
 
-            <div class="price">
-                قیمت: توافقی
+            <span class="tag">طراحی اختصاصی</span>
+
+            <div class="price-row">
+                <div class="price">
+                    از ۱۵۰,۰۰۰ تومان
+                    <small>بسته به جزئیات طراحی</small>
+                </div>
+
+                <button class="buy-btn"
+                    onclick="buy('ساخت اسکین اختصاصی')">
+                    سفارش
+                </button>
             </div>
 
-            <button class="buy"
-                onclick="buy('سایت‌سازی')">
-                🛒 خرید
-            </button>
+        </article>
 
-        </div>
+        <!-- 7 -->
+
+        <article class="product">
+
+            <div class="product-icon">🎬</div>
+
+            <h3>ادیت ویدیو</h3>
+
+            <p>
+                ادیت ویدیوهای گیمینگ، ماینکرفت،
+                کلیپ و ساخت محتوای جذاب.
+            </p>
+
+            <span class="tag">مناسب تولیدکنندگان محتوا</span>
+
+            <div class="price-row">
+                <div class="price">
+                    از ۲۰۰,۰۰۰ تومان
+                    <small>بسته به زمان و سبک ادیت</small>
+                </div>
+
+                <button class="buy-btn"
+                    onclick="buy('ادیت ویدیو')">
+                    سفارش
+                </button>
+            </div>
+
+        </article>
+
+        <!-- 8 -->
+
+        <article class="product">
+
+            <div class="product-icon">🖼️</div>
+
+            <h3>تامنیل اختصاصی</h3>
+
+            <p>
+                طراحی تصویر بندانگشتی جذاب برای
+                یوتیوب، آپارات و محتوای گیمینگ.
+            </p>
+
+            <span class="tag">طراحی گرافیکی</span>
+
+            <div class="price-row">
+                <div class="price">
+                    از ۱۰۰,۰۰۰ تومان
+                    <small>هر تصویر</small>
+                </div>
+
+                <button class="buy-btn"
+                    onclick="buy('طراحی تامنیل')">
+                    سفارش
+                </button>
+            </div>
+
+        </article>
+
+        <!-- 9 -->
+
+        <article class="product">
+
+            <div class="product-icon">🌐</div>
+
+            <h3>طراحی سایت</h3>
+
+            <p>
+                ساخت سایت اختصاصی برای سرور،
+                فروشگاه ماینکرفت یا کسب‌وکار شما.
+            </p>
+
+            <span class="tag">طراحی سفارشی</span>
+
+            <div class="price-row">
+                <div class="price">
+                    از ۵۰۰,۰۰۰ تومان
+                    <small>بسته به امکانات سایت</small>
+                </div>
+
+                <button class="buy-btn"
+                    onclick="buy('طراحی سایت')">
+                    سفارش
+                </button>
+            </div>
+
+        </article>
 
     </div>
 
 </section>
 
+<section class="support-section container" id="support">
+
+    <div class="support-box">
+
+        <h2>پشتیبانی NightShop</h2>
+
+        <p>
+            برای خرید محصولات، استعلام قیمت و ثبت سفارش
+            به آیدی زیر در روبیکا پیام بده.
+        </p>
+
+        <div class="id-box">
+
+            <span class="id-text" id="rubikaId">
+                @ArdagulerReal
+            </span>
+
+            <button class="copy-btn" onclick="copyID()">
+                📋 کپی آیدی
+            </button>
+
+        </div>
+
+        <br>
+
+        <a class="rubika-link"
+           href="https://rubika.ir/ArdagulerReal"
+           target="_blank"
+           rel="noopener">
+            💬 ورود به صفحه روبیکا
+        </a>
+
+    </div>
+
+</section>
+
+</main>
+
 <footer>
 
-    🍕 © 2026 pizzaShop
-    <br>
-    تمامی حقوق محفوظ است
+    <p>
+        <strong>NIGHTSHOP</strong>
+        | فروشگاه خدمات ماینکرفت
+    </p>
+
+    <p style="margin-top:7px">
+        تمامی سفارش‌ها از طریق پشتیبانی روبیکا ثبت می‌شوند.
+    </p>
+
+    <p style="margin-top:7px">
+        © 2026 NightShop
+    </p>
 
 </footer>
 
-
-<!-- Buy Modal -->
-
-<div class="modal" id="buyModal">
-
-    <div class="modal-box">
-
-        <h2>🛒 خرید محصول</h2>
-
-        <p id="buyText"></p>
-
-        <div class="rubika">
-            @its_ArdavanReal
-        </div>
-
-        <button class="close" onclick="closeBuy()">
-            بستن
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- Support Modal -->
-
-<div class="modal" id="supportModal">
-
-    <div class="modal-box">
-
-        <h2>🎧 پشتیبانی</h2>
-
-        <p>
-            برای پشتیبانی و راهنمایی درباره محصولات
-            به آیدی روبیکا زیر پیام دهید.
-        </p>
-
-        <div class="rubika">
-            @its_ArdavanReal
-        </div>
-
-        <button class="close" onclick="closeSupport()">
-            بستن
-        </button>
-
-    </div>
-
-</div>
-
+<div class="toast" id="toast"></div>
 
 <script>
 
-function buy(product) {
+const rubikaID = "@ArdagulerReal";
 
-    document.getElementById("buyText").innerHTML =
-        "برای خرید <b>" + product +
-        "</b> به آیدی روبیکا زیر پیام دهید:";
+function showToast(message) {
+    const toast = document.getElementById("toast");
 
-    document.getElementById("buyModal").style.display = "flex";
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
 }
 
-function closeBuy() {
+async function copyID() {
+    try {
+        await navigator.clipboard.writeText(rubikaID);
+        showToast("آیدی روبیکا کپی شد! ✅");
+    } catch (error) {
+        const input = document.createElement("textarea");
 
-    document.getElementById("buyModal").style.display = "none";
+        input.value = rubikaID;
+        input.style.position = "fixed";
+        input.style.opacity = "0";
 
-}
+        document.body.appendChild(input);
+        input.select();
 
-function support() {
+        const success = document.execCommand("copy");
+        input.remove();
 
-    document.getElementById("supportModal").style.display = "flex";
-
-}
-
-function closeSupport() {
-
-    document.getElementById("supportModal").style.display = "none";
-
-}
-
-window.onclick = function(event) {
-
-    if (event.target === document.getElementById("buyModal")) {
-        closeBuy();
+        if (success) {
+            showToast("آیدی روبیکا کپی شد! ✅");
+        } else {
+            showToast("آیدی را دستی کپی کن: @ArdagulerReal");
+        }
     }
+}
 
-    if (event.target === document.getElementById("supportModal")) {
-        closeSupport();
-    }
+function buy(productName) {
 
-};
+    const message =
+        "سلام، از سایت NightShop پیام می‌دهم.\n" +
+        "می‌خواهم محصول «" + productName + "» را سفارش بدهم.\n" +
+        "لطفاً قیمت نهایی و شرایط خرید را اعلام کنید.";
+
+    showToast("آیدی پشتیبانی را کپی کن و محصول را سفارش بده.");
+
+    /*
+      روبیکا در همه نسخه‌ها اجازه ارسال خودکار پیام
+      از سایت را نمی‌دهد؛ بنابراین آیدی پشتیبانی
+      نمایش داده می‌شود تا سفارش را ارسال کنی.
+    */
+
+    copyID();
+
+}
 
 </script>
 
 </body>
-</html>
+    </html>
